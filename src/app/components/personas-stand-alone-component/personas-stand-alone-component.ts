@@ -1,13 +1,17 @@
 import { Component,OnInit } from '@angular/core';
 import { ServicePersonas } from '../../service/service.persona';
 import { Persona } from '../../models/persona';
+
+
+
 @Component({
-  selector: 'app-personas-api-component',
-  standalone: false,
-  templateUrl: './personas-api-component.html',
-  styleUrl: './personas-api-component.css',
+  selector: 'app-personas-stand-alone-component',
+  standalone: true,
+  templateUrl: './personas-stand-alone-component.html',
+  styleUrl: './personas-stand-alone-component.css',
+ providers:[ServicePersonas]
 })
-export class PersonasApiComponent implements OnInit {
+export class PersonasStandAloneComponent {
   public personas!:Array<Persona>
   constructor(private _service:ServicePersonas){}
 ngOnInit(): void {
@@ -20,4 +24,5 @@ ngOnInit(): void {
     this.personas=response
   })
 }
+
 }
