@@ -1,0 +1,9 @@
+<div>
+    
+    <ul class="list-group" *ngIf="personas.length>0">
+        <li *ngFor="let person of personas">
+            {{person.Nombre}}, {{person.Email}}
+        </li>
+
+    </ul>
+</div>
