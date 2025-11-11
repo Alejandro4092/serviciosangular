@@ -1,0 +1,44 @@
+<div>
+    <h1 style="color:red">Api Plantilla Función simple</h1>
+
+    <form #plantillaForm="ngForm">
+        <select name="selectfunciones" #selectfunciones  class="form-control" multiple>
+            @for (funcion of funciones; track funcion) {
+                <option [value]="funcion">{{ funcion }}</option>
+            }
+        </select>
+
+        <button type="button" class="btn btn-outline-secondary" (click)="mostrarPlantilla()">
+            Mostrar plantilla
+        </button>
+    </form>
+
+    @if (plantillas.length > 0) {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Hospital</th>
+                    <th>Sala</th>
+                    <th>Apellido</th>
+                    <th>Función</th>
+                    <th>Turno</th>
+                    <th>Salario</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (empleado of plantillas; track empleado) {
+                    <tr>
+                        <td>{{ empleado.idEmpleado }}</td>
+                        <td>{{ empleado.idHospital }}</td>
+                        <td>{{ empleado.idSala }}</td>
+                        <td>{{ empleado.apellido }}</td>
+                        <td>{{ empleado.funcion }}</td>
+                        <td>{{ empleado.turno }}</td>
+                        <td>{{ empleado.salario }}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

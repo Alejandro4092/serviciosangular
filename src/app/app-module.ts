@@ -9,6 +9,10 @@ import { ServicePersonas } from './service/service.persona';
 import { PersonasStandAloneComponent } from './components/personas-stand-alone-component/personas-stand-alone-component';
 import { ServiceCoches } from './service/service.coches';
 import { CochesComponent } from './components/coches.component/coches.component';
+import { PlantillaFuncionSimple } from './components/plantilla.funcion.simple/plantilla.funcion.simple';
+import { MenuComponent } from './components/menu.component/menu.component';
+import { ServicePlantillas } from './service/service.plantillas';
+import { PlantillaFuncionMultiple } from './components/plantilla.funcion.multiple/plantilla.funcion.multiple';
 
 
 @NgModule({
@@ -16,14 +20,19 @@ import { CochesComponent } from './components/coches.component/coches.component'
     App,
     PersonasApiComponent,
     CochesComponent,
+    PlantillaFuncionSimple,
+    MenuComponent,
+    PlantillaFuncionMultiple,
   
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     routing,
     PersonasStandAloneComponent
 ],
   providers: [
+    ServicePlantillas,
     ServiceCoches,
     ServicePersonas,
     provideHttpClient(),
