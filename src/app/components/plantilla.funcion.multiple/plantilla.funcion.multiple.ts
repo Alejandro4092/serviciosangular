@@ -19,7 +19,17 @@ export class PlantillaFuncionMultiple implements OnInit{
  }
 
 mostrarPlantilla():void{
-  
+  let aux= new Array<string>();
+  for(var option of this.selectFunciones.nativeElement.options){
+    if(option.selected==true){
+      aux.push(option.value)
+    }
+  }
+  this.funcionesSeleccionadas=aux
+  this._service.getPlantillaFunciones(this.funcionesSeleccionadas).subscribe
+  (response=>{
+    this.plantillas=response;
+  })
 }
 
    ngOnInit(): void {
