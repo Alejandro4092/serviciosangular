@@ -8,12 +8,12 @@ import { Coche } from "../models/coche";
 export class ServiceCoches {
     constructor(private _http: HttpClient) { }
 
-    getCoches(): any {
+    getCoches():Promise<Array<Coche>>{
         let reqest = "webresources/coches";
         let url = environment.urlApiCoches + reqest;
-        fetch(url).then(response => {
-            return response
-        })
+        const coches=
+        fetch(url).then(response => response.json());
+        return coches;
     }
     getCochesPromise(): Promise<any> {
         let request = "webresources/coches";
