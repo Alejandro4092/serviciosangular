@@ -1,0 +1,24 @@
+import { Component,OnInit } from '@angular/core';
+import { ServiceCoches } from '../../service/service.cohes';
+import { Coche } from '../../models/coche';
+
+@Component({
+  selector: 'app-coches',
+  standalone: false,
+  templateUrl: './coches.component.html',
+  styleUrl: './coches.component.css',
+})
+export class CochesComponent implements OnInit {
+public coches!:Array<Coche>;
+
+constructor(private _service:ServiceCoches){}
+
+ngOnInit(): void {
+  // this.coches=this._service.getCoches();  
+  this._service.getCochesPromise().then(response=>{
+    this.coches=response;
+  })
+
+}
+
+}

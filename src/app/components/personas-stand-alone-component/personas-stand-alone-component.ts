@@ -11,10 +11,12 @@ import { Persona } from '../../models/persona';
   styleUrl: './personas-stand-alone-component.css',
  providers:[ServicePersonas]
 })
-export class PersonasStandAloneComponent {
+export class PersonasStandAloneComponent implements OnInit{
   public personas!:Array<Persona>
   constructor(private _service:ServicePersonas){}
-ngOnInit(): void {
+
+
+  ngOnInit(): void {
   // this._service.getPersonas().subscribe(response=>{
   //   console.log("leyendo")
   //   this.personas=response
@@ -24,5 +26,6 @@ ngOnInit(): void {
     this.personas=response
   })
 }
+
 
 }
